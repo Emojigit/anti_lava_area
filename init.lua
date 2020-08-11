@@ -236,7 +236,7 @@ minetest.override_item("bucket:bucket_lava", {
 if hasareasmod then
 	if areas.registerHudHandler then
 
-		local function advertise_nokillzone(pos, list)
+		local function advertise_nolavazone(pos, list)
 			for k, v in pairs(anti_lava_area_store:get_areas_for_pos(pos)) do
 				if k then
 					table.insert(list, {
@@ -248,7 +248,7 @@ if hasareasmod then
 			end
 		end
 
-		areas:registerHudHandler(advertise_nokillzone)
+		areas:registerHudHandler(advertise_nolavazone)
 	else
 		minetest.log("info","Your version of `areas` does not support registering hud handlers.")
 	end
