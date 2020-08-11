@@ -150,7 +150,7 @@ minetest.register_chatcommand("anti_lava_area", {
 
 -- Register place lava callback.
 minetest.register_on_placenode(function(pos, newnode, placer, oldnode, itemstack, pointed_thing)
-	if newnode.name == "default:lava_source" or (newnode.name == "default:lava_source" and (placer:get_wielded_item().name == "bucket:bucket_lava" or placer:get_wielded_item().name == "bucket:bucket_empty")) then
+	if newnode.name == "default:lava_source" then
 		local name = placer:get_player_name()
 		if name then
 			local can_ignore, missing_privs = minetest.check_player_privs(name, {anti_lava_area_ignore=true})
@@ -163,7 +163,7 @@ minetest.register_on_placenode(function(pos, newnode, placer, oldnode, itemstack
 					end
 				end
 			end
-			minetest.chat_send_player(name, "[DEBUG] Place lava sucess!")
+			-- minetest.chat_send_player(name, "[DEBUG] Place lava sucess!")
 		end
 	end
 end)
@@ -225,7 +225,7 @@ minetest.override_item("bucket:bucket_lava", {
 					end
 				end
 			end
-			minetest.chat_send_player(name, "[DEBUG] Place lava sucess!")
+			-- minetest.chat_send_player(name, "[DEBUG] Place lava sucess!")
 		end
 		minetest.set_node(lpos, {name = "default:lava_source"})
 		return ItemStack("bucket:bucket_empty")
