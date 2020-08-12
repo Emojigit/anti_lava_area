@@ -52,9 +52,6 @@ local area_label = settings:get("anti_lava_are.label") or "Anit-lava defined are
 local anti_lava_area_store = AreaStore()
 anti_lava_area_store:from_file(worlddir .. "/anti_lava_area_store.dat")
 
-local anti_lava_area_default = minetest.is_yes(settings:get_bool("anti_lava_are.enable_lava"))
-minetest.log("action", "[" .. modname .. "] PvP by Default: " .. tostring(anti_lava_area_default))
-
 local anti_lava_area_players = {}
 local anti_lava_area = {}
 
