@@ -85,7 +85,7 @@ minetest.register_privilege("anti_lava_area_ignore", {
 })
 
 minetest.register_chatcommand("anti_lava_area", {
-	description = "Mark and set areas for PvP.",
+	description = "Mark and set areas can't Place lava.",
 	params = "<pos1> <pos2> <set> <remove>",
 	privs = "anti_lava_area_admin",
 	func = function(name, param)
